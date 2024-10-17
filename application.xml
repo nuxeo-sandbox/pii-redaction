@@ -1,0 +1,7 @@
+<application>
+  <targetPlatform>
+    <version>lts-2023.0</version>
+    <packages/>
+  </targetPlatform>
+  <dependencies class="linked-hash-set"/>
+</application>
