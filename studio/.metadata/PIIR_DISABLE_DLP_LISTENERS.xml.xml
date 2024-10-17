@@ -1,4 +1,4 @@
-<xml-extension id="PIID_DISABLE_DLP_LISTENERS" version="1.2">
+<xml-extension id="PIIR_DISABLE_DLP_LISTENERS" version="1.2">
   <xml>&lt;!-- Disable default listeners, don&apos;t want all Files to be scanned automatically --&gt;
 &lt;extension target=&quot;org.nuxeo.ecm.core.event.EventServiceComponent&quot; point=&quot;listener&quot;&gt;
     &lt;listener name=&quot;dlpListener&quot; async=&quot;false&quot; postCommit=&quot;false&quot;
