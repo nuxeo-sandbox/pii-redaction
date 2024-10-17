@@ -1,0 +1,7 @@
+<scriptedOperation id="piir_api_DLP_CleanupData" version="1.2">
+  <description></description>
+  <inputType>document</inputType>
+  <outputType>document</outputType>
+  <category>javascript</category>
+  <disableHelperComments>true</disableHelperComments>
+</scriptedOperation>
