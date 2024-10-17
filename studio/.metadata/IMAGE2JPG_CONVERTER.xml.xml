@@ -1,1 +1,54 @@
-<xml-extension id="IMAGE2JPG_CONVERTER" version="1.2"/>
+<xml-extension id="IMAGE2JPG_CONVERTER" version="1.2">
+  <xml>&lt;require&gt;org.nuxeo.ecm.platform.picture.commandline.imagemagick&lt;/require&gt;
+
+&lt;extension target=&quot;org.nuxeo.ecm.platform.commandline.executor.service.CommandLineExecutorComponent&quot;
+  point=&quot;command&quot;&gt;
+  &lt;!-- Simple converter based on file extension --&gt;
+  &lt;command name=&quot;simpleConverterToJpeg&quot; enabled=&quot;true&quot;&gt;
+    &lt;commandLine&gt;convert&lt;/commandLine&gt;
+    &lt;parameterString&gt;#{sourceFilePath}[0] #{targetFilePath}.jpg&lt;/parameterString&gt;
+    &lt;winParameterString&gt;#{sourceFilePath}[0] #{targetFilePath}.jpg&lt;/winParameterString&gt;
+    &lt;installationDirective&gt;You need to install ImageMagick.&lt;/installationDirective&gt;
+  &lt;/command&gt;
+&lt;/extension&gt;
+
+&lt;extension target=&quot;org.nuxeo.ecm.platform.commandline.executor.service.CommandLineExecutorComponent&quot;
+           point=&quot;command&quot;&gt;
+  &lt;command name=&quot;simpleJpegCompressor&quot; enabled=&quot;true&quot;&gt;
+    &lt;commandLine&gt;convert&lt;/commandLine&gt;
+    &lt;parameterString&gt;-define registry:temporary-path=#{nuxeo.tmp.dir} -quiet #{sourceFilePath}[0] -background white -flatten -strip -sampling-factor 4:2:0 -quality 80 -interlace JPEG -colorspace sRGB jpg:#{targetFilePath}&lt;/parameterString&gt;
+    &lt;winParameterString&gt;-define registry:temporary-path=#{nuxeo.tmp.dir} -quiet #{sourceFilePath}[0] -background white -flatten -strip -sampling-factor 4:2:0 -quality 80 -interlace JPEG -colorspace sRGB jpg:#{targetFilePath}&lt;/winParameterString&gt;
+    &lt;installationDirective&gt;You need to install ImageMagick.&lt;/installationDirective&gt;
+  &lt;/command&gt;
+&lt;/extension&gt;
+
+&lt;extension point=&quot;converter&quot; target=&quot;org.nuxeo.ecm.core.convert.service.ConversionServiceImpl&quot;&gt;
+  &lt;converter class=&quot;org.nuxeo.ecm.platform.convert.plugins.CommandLineConverter&quot;
+    name=&quot;simpleJpegCompressor&quot;&gt;
+    &lt;sourceMimeType&gt;image/*&lt;/sourceMimeType&gt;
+    &lt;sourceMimeType&gt;application/pdf&lt;/sourceMimeType&gt;
+    &lt;destinationMimeType&gt;image/jpeg&lt;/destinationMimeType&gt;
+    &lt;parameters&gt;
+      &lt;parameter name=&quot;CommandLineName&quot;&gt;simpleJpegCompressor&lt;/parameter&gt;
+    &lt;/parameters&gt;
+  &lt;/converter&gt;
+&lt;/extension&gt;
+
+&lt;extension point=&quot;converter&quot;
+  target=&quot;org.nuxeo.ecm.core.convert.service.ConversionServiceImpl&quot;&gt;
+
+  &lt;!--
+  Simple converter based on file extension
+  We just use the default &quot;converter&quot; commanLine contribution of the platform
+  This converter can then be used with Blob.RunConverter (using the CommandLineConverter class)
+  --&gt;
+  &lt;converter class=&quot;org.nuxeo.ecm.platform.convert.plugins.CommandLineConverter&quot;
+    name=&quot;simpleConverterToJpeg&quot;&gt;
+    &lt;sourceMimeType&gt;image/*&lt;/sourceMimeType&gt;
+    &lt;destinationMimeType&gt;image/jpeg&lt;/destinationMimeType&gt;
+    &lt;parameters&gt;
+      &lt;parameter name=&quot;CommandLineName&quot;&gt;simpleConverterToJpeg&lt;/parameter&gt;
+    &lt;/parameters&gt;
+  &lt;/converter&gt;
+&lt;/extension&gt;</xml>
+</xml-extension>
