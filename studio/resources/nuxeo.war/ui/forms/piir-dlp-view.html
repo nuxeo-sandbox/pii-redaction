@@ -6,18 +6,17 @@
 <dom-module id="piir-dlp-view">
   <template>
     <style include="nuxeo-styles">
-      .finding {
-        margin-left: 15px;
+      /* Make it fit on the page, no vertical scrollbar */
+      .results {
+        height: calc(100vh - 345px - var(--nuxeo-app-top));
       }
     </style>
 
     <template is="dom-if"
               if="[[_hasDLP(document)]]">
 
-      <hr>
-      <h5>Sensitive Data Protection Scan Result</h5>
-
-      <div role="widget">
+      <div role="widget"
+           hidden$="[[!document.properties.dlp:scanDate]]">
         <label>Scan Date</label>
         <nuxeo-date datetime="[[document.properties.dlp:scanDate]]"
                     name="scanDate">
@@ -30,7 +29,7 @@
       </div>
 
       <div role="widget">
-        <label>Sensitive Data</label>
+        <label>Contains Sensitive Data</label>
         <paper-checkbox checked="[[document.properties.dlp:sensitiveData]]"
                         disabled="true"
                         name="sensitiveData">
@@ -39,15 +38,39 @@
 
       <div role="widget">
         <label>Findings</label>
-        <template is="dom-repeat"
-                  items="[[document.properties.dlp:findings]]"
-                  as="finding">
-          [[finding.type]] (score: [[finding.score]])<br />
-          <div class="finding">
-            [[finding.info]]<br />
-            Location: [[_formatLocationAsText(finding.locationJson)]]
-          </div>
-        </template>
+
+
+        <nuxeo-data-table role="widget"
+                          class="results"
+                          items="{{document.properties.dlp:findings}}"
+                          name="changeLog">
+
+          <nuxeo-data-table-column name="InfoType">
+            <template>
+              <nuxeo-tag>[[item.type]]</nuxeo-tag>
+            </template>
+          </nuxeo-data-table-column>
+
+          <nuxeo-data-table-column name="Score">
+            <template>
+              <nuxeo-tag>[[item.score]]</nuxeo-tag>
+            </template>
+          </nuxeo-data-table-column>
+
+          <nuxeo-data-table-column name="Value">
+            <template>
+              [[item.info]]
+            </template>
+          </nuxeo-data-table-column>
+
+          <nuxeo-data-table-column name="Location">
+            <template>
+              [[_formatLocationAsText(item.locationJson)]]
+            </template>
+          </nuxeo-data-table-column>
+
+        </nuxeo-data-table>
+
       </div>
 
     </template>
