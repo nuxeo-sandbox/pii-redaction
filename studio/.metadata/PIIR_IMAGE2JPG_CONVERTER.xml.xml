@@ -1,4 +1,4 @@
-<xml-extension id="IMAGE2JPG_CONVERTER" version="1.2">
+<xml-extension id="PIIR_IMAGE2JPG_CONVERTER" version="1.2">
   <xml>&lt;require&gt;org.nuxeo.ecm.platform.picture.commandline.imagemagick&lt;/require&gt;
 
 &lt;extension target=&quot;org.nuxeo.ecm.platform.commandline.executor.service.CommandLineExecutorComponent&quot;
