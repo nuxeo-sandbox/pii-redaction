@@ -1,1 +1,12 @@
-<xml-extension id="DLP_DISABLE_DEFAULT_LISTENERS" version="1.2"/>
+<xml-extension id="DLP_DISABLE_DEFAULT_LISTENERS" version="1.2">
+  <xml>&lt;!-- Disable default listeners, don&apos;t want all Files to be scanned automatically --&gt;
+&lt;extension target=&quot;org.nuxeo.ecm.core.event.EventServiceComponent&quot; point=&quot;listener&quot;&gt;
+    &lt;listener name=&quot;dlpListener&quot; async=&quot;false&quot; postCommit=&quot;false&quot;
+              class=&quot;org.nuxeo.platform.scanner.dlp.listeners.DLPScanSyncListener&quot; priority=&quot;100&quot;
+              enabled=&quot;false&quot;&gt;
+      &lt;event&gt;documentCreated&lt;/event&gt;
+      &lt;event&gt;beforeDocumentModification&lt;/event&gt;
+      &lt;event&gt;aboutToCreate&lt;/event&gt;
+    &lt;/listener&gt;
+&lt;/extension&gt;</xml>
+</xml-extension>
