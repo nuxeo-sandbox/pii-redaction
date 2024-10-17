@@ -1,0 +1,7 @@
+<scriptedOperation id="api_DLP_Process" version="1.2">
+  <description></description>
+  <inputType>document</inputType>
+  <outputType>document</outputType>
+  <category>javascript</category>
+  <disableHelperComments>true</disableHelperComments>
+</scriptedOperation>
