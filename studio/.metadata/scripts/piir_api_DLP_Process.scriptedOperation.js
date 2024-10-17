@@ -116,7 +116,7 @@ function toJsArray(javaArray) {
 
 //==============================================================================
 // Prefix for log messages to make it easier to understand the context.
-var LOG_PREFIX = "api_DLP_Process: ";
+var LOG_PREFIX = "piir_api_DLP_Process: ";
 // Turn log messages on or off globally.
 var LOGGING_ENABLED = true;
 
