@@ -1,0 +1,99 @@
+<!--
+`piir-dlp-view`
+@group Nuxeo UI
+@element piir-dlp-view
+-->
+<dom-module id="piir-dlp-view">
+  <template>
+    <style include="nuxeo-styles">
+      .finding {
+        margin-left: 15px;
+      }
+    </style>
+
+    <template is="dom-if"
+              if="[[_hasDLP(document)]]">
+
+      <hr>
+      <h5>Sensitive Data Protection Scan Result</h5>
+
+      <div role="widget">
+        <label>Scan Date</label>
+        <nuxeo-date datetime="[[document.properties.dlp:scanDate]]"
+                    name="scanDate">
+        </nuxeo-date>
+      </div>
+
+      <div role="widget">
+        <label>Scan Status</label>
+        <div name="scanStatus">[[document.properties.dlp:scanStatus]]</div>
+      </div>
+
+      <div role="widget">
+        <label>Sensitive Data</label>
+        <paper-checkbox checked="[[document.properties.dlp:sensitiveData]]"
+                        disabled="true"
+                        name="sensitiveData">
+        </paper-checkbox>
+      </div>
+
+      <div role="widget">
+        <label>Findings</label>
+        <template is="dom-repeat"
+                  items="[[document.properties.dlp:findings]]"
+                  as="finding">
+          [[finding.type]] (score: [[finding.score]])<br />
+          <div class="finding">
+            [[finding.info]]<br />
+            Location: [[_formatLocationAsText(finding.locationJson)]]
+          </div>
+        </template>
+      </div>
+
+    </template>
+
+  </template>
+
+  <script>
+    Polymer({
+      is: 'piir-dlp-view',
+      behaviors: [Nuxeo.LayoutBehavior],
+      properties: {
+        document: {
+          type: Object
+        }
+      },
+
+      _hasDLP: function (doc) {
+        return this.hasFacet(doc, "DataLossPrevention");
+      },
+
+      _formatLocationAsText: function (locationJsonStr) {
+        try {
+          let txt = "";
+          let json = JSON.parse(locationJsonStr);
+          if (json.hasImageLocation) {
+            txt += "\n    image Location, ";
+            txt += json.firstImageLocation.top + "-" + json.firstImageLocation.left;
+            txt += " (" + json.firstImageLocation.width + "x" + json.firstImageLocation.height + ")";
+          }
+
+          if (json.hasByteRange) {
+            txt += "\n    Byte Range, start " + json.byteRange.start + ", end " + json.byteRange.end;
+          }
+
+          if (json.hasCodepointRange) {
+            txt += "\n    Codepoint Range, start " + json.codePointRange.start + ", end " + json.codePointRange.end;
+          }
+
+          return txt;
+        } catch (err) {
+          console.error("Error parsing the location: " + err);
+        }
+
+        return locationJsonStr;
+      }
+
+    });
+  </script>
+</dom-module>
