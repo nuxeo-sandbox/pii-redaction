@@ -3,5 +3,9 @@
     <version>lts-2023.0</version>
     <packages/>
   </targetPlatform>
-  <dependencies class="linked-hash-set"/>
+  <dependencies class="linked-hash-set">
+    <string>nuxeo-arender:2023.2.1</string>
+    <string>nuxeo-data-loss-prevention-scanner:2023.4.0</string>
+    <string>nuxeo-web-ui:3.1.12</string>
+  </dependencies>
 </application>
