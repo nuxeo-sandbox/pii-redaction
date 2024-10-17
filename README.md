@@ -26,6 +26,6 @@ Two actions are provided:
 * Sensitive Data Protection Scan - scans the Document for sensitive data and applies redaction
 * Remove DLP Data - Deletes the results of the scan and removes the `DataLossPrevention` facet
 
-A tab is provided for viewing the detection data.
+A tab labeled "SDP Scan Results" is provided for viewing the detection data.
 
 A [Layout Block](https://doc.nuxeo.com/studio/ui-designer/#layout-blocks) named `piir-dlp-view` is provided that displays the detection data (can be used in other layouts, filters for the `DataLossPrevention` facet).
