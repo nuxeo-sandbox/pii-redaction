@@ -4,8 +4,6 @@ function run(input, params) {
   logHelper("== Begin...");
   logHelper("================================================================================")
 
-  logHelper("Env. google.dlp.infotypes => " + Env["google.dlp.infotypes"]);
-
   // For a demo we check a lot of infotypes, but the docs recommend only
   // checking the info types that you know you need, for performance reasons.
   // https://cloud.google.com/sensitive-data-protection/docs/concepts-infotypes#higher-latency-detectors
