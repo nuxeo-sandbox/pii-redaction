@@ -10,6 +10,7 @@ Should you wish to add custom code, we recommend using the nuxeo-pii-redaction-c
 
 <link rel="import" href="nuxeo-pii-redaction-custom-bundle.html">
 <link rel="import" href="nuxeo-pii-redaction-iconset.html">
+<link rel="import" href="elements/piir-sdp-scan-result-tab.html">
 <!-- Contribution of element 'nuxeo-operation-button' for slot 'DOCUMENT_ACTIONS' -->
 <nuxeo-slot-content name="piir-cleanupData" slot="DOCUMENT_ACTIONS" order="30001">
   <template>
@@ -28,6 +29,22 @@ Should you wish to add custom code, we recommend using the nuxeo-pii-redaction-c
         <nuxeo-operation-button icon="pii-redaction:securitySectionIcon" label="Sensitive Data Protection Scan" tooltip="Sensitive Data Protection Scan" operation="javascript.piir_api_DLP_Process" input="[[document]]" response="Sensitive Data Protection Scan Complete" event="document-updated"></nuxeo-operation-button>
       </template>
     </nuxeo-filter>
+  </template>
+</nuxeo-slot-content>
+<!-- Contribution of element 'nuxeo-page-item' for slot 'DOCUMENT_VIEWS_ITEMS' -->
+<nuxeo-slot-content name="piir-sdpTab" slot="DOCUMENT_VIEWS_ITEMS" order="3000">
+  <template>
+    <nuxeo-filter document="[[document]]" facet="DataLossPrevention" group="administrators" user="[[user]]">
+      <template>
+        <nuxeo-page-item name="piir-sdptab" label="SDP Scan Results"></nuxeo-page-item>
+      </template>
+    </nuxeo-filter>
+  </template>
+</nuxeo-slot-content>
+<!-- Contribution of element 'piir-sdp-scan-result-tab' for slot 'DOCUMENT_VIEWS_PAGES' -->
+<nuxeo-slot-content name="piir-sdpTab" slot="DOCUMENT_VIEWS_PAGES">
+  <template>
+    <piir-sdp-scan-result-tab document="[[document]]" name="piir-sdptab"></piir-sdp-scan-result-tab>
   </template>
 </nuxeo-slot-content>
 
