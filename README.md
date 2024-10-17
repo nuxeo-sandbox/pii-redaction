@@ -28,4 +28,4 @@ Two actions are provided:
 
 A tab is provided for viewing the detection data.
 
-A [Layout Block](https://doc.nuxeo.com/studio/ui-designer/#layout-blocks) named `piir-dlp-view` is provided that displays the detection data (can be used in other layouts, just check for the `DataLossPrevention` facet).
+A [Layout Block](https://doc.nuxeo.com/studio/ui-designer/#layout-blocks) named `piir-dlp-view` is provided that displays the detection data (can be used in other layouts, filters for the `DataLossPrevention` facet).
