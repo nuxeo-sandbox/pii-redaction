@@ -16,7 +16,7 @@ Should you wish to add custom code, we recommend using the nuxeo-pii-redaction-c
   <template>
     <nuxeo-filter document="[[document]]" facet="DataLossPrevention" group="administrators" user="[[user]]">
       <template>
-        <nuxeo-operation-button icon="icons:remove-circle" label="Remove DLP Data" tooltip="Remove DLP Data" operation="javascript.piir_api_DLP_CleanupData" input="[[document]]" notification="DLP Data reset" event="document-updated"></nuxeo-operation-button>
+        <nuxeo-operation-button icon="icons:remove-circle" label="Remove DLP Data" tooltip="Remove DLP Data" operation="javascript.piir_api_DLP_CleanupData" input="[[document]]" notification="DLP Data reset." event="document-updated"></nuxeo-operation-button>
       </template>
     </nuxeo-filter>
   </template>
