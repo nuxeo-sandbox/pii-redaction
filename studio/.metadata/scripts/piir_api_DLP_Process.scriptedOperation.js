@@ -1,8 +1,8 @@
 function run(input, params) {
 
-  logHelper("================================================================================")
+  logHelper("================================================================================");
   logHelper("== Begin...");
-  logHelper("================================================================================")
+  logHelper("================================================================================");
 
   // For a demo we check a lot of infotypes, but the docs recommend only
   // checking the info types that you know you need, for performance reasons.
@@ -99,9 +99,9 @@ function run(input, params) {
   //creation redaction annotations
   input = NEV.CreateDlpAnnotations(input, {});
 
-  logHelper("================================================================================")
+  logHelper("================================================================================");
   logHelper("== Done.");
-  logHelper("================================================================================")
+  logHelper("================================================================================");
 }
 
 function toJsArray(javaArray) {
