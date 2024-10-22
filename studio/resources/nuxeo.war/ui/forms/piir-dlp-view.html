@@ -17,19 +17,19 @@
 
       <div role="widget"
            hidden$="[[!document.properties.dlp:scanDate]]">
-        <label>Scan Date</label>
+        <label>[[i18n('piir.label.dlpview.date')]]</label>
         <nuxeo-date datetime="[[document.properties.dlp:scanDate]]"
                     name="scanDate">
         </nuxeo-date>
       </div>
 
       <div role="widget">
-        <label>Scan Status</label>
+        <label>[[i18n('piir.label.dlpview.status')]]</label>
         <div name="scanStatus">[[document.properties.dlp:scanStatus]]</div>
       </div>
 
       <div role="widget">
-        <label>Contains Sensitive Data</label>
+        <label>[[i18n('piir.label.dlpview.flag')]]</label>
         <paper-checkbox checked="[[document.properties.dlp:sensitiveData]]"
                         disabled="true"
                         name="sensitiveData">
@@ -37,7 +37,7 @@
       </div>
 
       <div role="widget">
-        <label>Findings</label>
+        <label>[[i18n('piir.label.dlpview.findings')]]</label>
 
 
         <nuxeo-data-table role="widget"
@@ -45,25 +45,25 @@
                           items="{{document.properties.dlp:findings}}"
                           name="changeLog">
 
-          <nuxeo-data-table-column name="InfoType">
+          <nuxeo-data-table-column name="[[i18n('piir.label.dlpview.infotype')]]">
             <template>
               <nuxeo-tag>[[item.type]]</nuxeo-tag>
             </template>
           </nuxeo-data-table-column>
 
-          <nuxeo-data-table-column name="Score">
+          <nuxeo-data-table-column name="[[i18n('piir.label.dlpview.score')]]">
             <template>
               <nuxeo-tag>[[item.score]]</nuxeo-tag>
             </template>
           </nuxeo-data-table-column>
 
-          <nuxeo-data-table-column name="Value">
+          <nuxeo-data-table-column name="[[i18n('piir.label.dlpview.value')]]">
             <template>
               [[item.info]]
             </template>
           </nuxeo-data-table-column>
 
-          <nuxeo-data-table-column name="Location">
+          <nuxeo-data-table-column name="[[i18n('piir.label.dlpview.location')]]">
             <template>
               [[_formatLocationAsText(item.locationJson)]]
             </template>

@@ -33,15 +33,15 @@ This is based on nuxeo-document-info-bar.
          class="bar sdp">
       <div class="layout horizontal center flex">
         <iron-icon icon="pii-redaction:securitySectionIcon"></iron-icon>
-        <span class="layout flex">[[i18n('Warning: This document contains sensitive data. Automatic redaction has been performed.')]]</span>
+        <span class="layout flex">[[i18n('piir.label.banner.warning')]]</span>
         <paper-button id="piir-sdptab"
                       class="primary"
                       on-tap="_openTab"
-                      noink>[[i18n('View SDP Scan Results')]]</paper-button>
+                      noink>[[i18n('piir.label.banner.sdpbutton')]]</paper-button>
         <paper-button id="arender"
                       class="primary"
                       on-tap="_openTab"
-                      noink>[[i18n('View Redactions')]]</paper-button>
+                      noink>[[i18n('piir.label.banner.redactionbutton')]]</paper-button>
       </div>
     </div>
 

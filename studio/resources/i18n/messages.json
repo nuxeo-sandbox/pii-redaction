@@ -1,3 +1,19 @@
 {
-
+  "piir.label.banner.warning": "Warning: This document contains sensitive data. Automatic redaction has been performed.",
+  "piir.label.banner.sdpbutton": "View SDP Scan Results",
+  "piir.label.banner.redactionbutton": "View Redactions",
+  "piir.label.sdptab.heading": "Sensitive Data Protection Scan Results",
+  "piir.label.dlpview.date": "Scan Date",
+  "piir.label.dlpview.status": "Scan Status",
+  "piir.label.dlpview.flag": "Contains Sensitive Data",
+  "piir.label.dlpview.findings": "Findings",
+  "piir.label.dlpview.infotype": "InfoType",
+  "piir.label.dlpview.score": "Score",
+  "piir.label.dlpview.value": "Value",
+  "piir.label.dlpview.location": "Location",
+  "piir.label.bundle.removesdp": "Remove SDP Info",
+  "piir.label.bundle.removenotif": "SDP info removed.",
+  "piir.label.bundle.sdpscan": "SDP Scan and Redact",
+  "piir.label.bundle.scannotif": "SDP scan complete.",
+  "piir.label.bundle.sdptab": "SDP Scan Results"
 }

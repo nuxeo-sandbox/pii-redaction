@@ -16,7 +16,7 @@ Should you wish to add custom code, we recommend using the nuxeo-pii-redaction-c
   <template>
     <nuxeo-filter document="[[document]]" facet="DataLossPrevention" group="administrators" user="[[user]]">
       <template>
-        <nuxeo-operation-button icon="pii-redaction:securitySectionDelete" label="Remove SDP Info" tooltip="Remove SDP Info" operation="javascript.piir_api_DLP_CleanupData" input="[[document]]" notification="SDP info removed." event="document-updated"></nuxeo-operation-button>
+        <nuxeo-operation-button icon="pii-redaction:securitySectionDelete" label="piir.label.bundle.removesdp" tooltip="piir.label.bundle.removesdp" operation="javascript.piir_api_DLP_CleanupData" input="[[document]]" notification="piir.label.bundle.removenotif" event="document-updated"></nuxeo-operation-button>
       </template>
     </nuxeo-filter>
   </template>
@@ -26,7 +26,7 @@ Should you wish to add custom code, we recommend using the nuxeo-pii-redaction-c
   <template>
     <nuxeo-filter document="[[document]]" expression="document.properties[&quot;file:content&quot;] !&#x3D; null" group="administrators" user="[[user]]">
       <template>
-        <nuxeo-operation-button icon="pii-redaction:securitySectionIcon" label="SDP Scan and Redact" tooltip="SDP Scan and Redact" operation="javascript.piir_api_DLP_Process" input="[[document]]" notification="SDP scan complete." event="document-updated"></nuxeo-operation-button>
+        <nuxeo-operation-button icon="pii-redaction:securitySectionIcon" label="piir.label.bundle.sdpscan" tooltip="piir.label.bundle.sdpscan" operation="javascript.piir_api_DLP_Process" input="[[document]]" notification="piir.label.bundle.scannotif" event="document-updated"></nuxeo-operation-button>
       </template>
     </nuxeo-filter>
   </template>
@@ -36,7 +36,7 @@ Should you wish to add custom code, we recommend using the nuxeo-pii-redaction-c
   <template>
     <nuxeo-filter document="[[document]]" facet="DataLossPrevention" group="administrators" user="[[user]]">
       <template>
-        <nuxeo-page-item name="piir-sdptab" label="SDP Scan Results"></nuxeo-page-item>
+        <nuxeo-page-item name="piir-sdptab" label="piir.label.bundle.sdptab"></nuxeo-page-item>
       </template>
     </nuxeo-filter>
   </template>
