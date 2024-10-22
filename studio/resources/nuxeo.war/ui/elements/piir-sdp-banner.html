@@ -19,7 +19,8 @@ This is based on nuxeo-document-info-bar.
       }
 
       .bar.sdp {
-        background: #ffdddd;
+        background: var(--piir-sdp-banner-background, var(--nuxeo-box, #ffdddd));
+        color: var(--piir-sdp-banner-color, var(--nuxeo-warn-text, black));
       }
 
       iron-icon {
