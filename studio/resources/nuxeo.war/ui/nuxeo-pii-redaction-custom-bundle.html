@@ -5,3 +5,15 @@ CUSTOM CODE SPACE
 Use this file to put any custom code you want to deploy on top of Studio's automatically generated configuration.
 -->
 <link rel="import" href="forms/piir-dlp-view.html">
+<link rel="import" href="elements/piir-sdp-banner.html">
+
+<!-- This is in the custom bundle because you can't contribute banners in Designer. -->
+<nuxeo-slot-content name="piir-banner" slot="DOCUMENT_INFO_BAR" order="3000">
+  <template>
+    <nuxeo-filter document="[[document]]" facet="DataLossPrevention" group="administrators" user="[[user]]">
+      <template>
+        <piir-sdp-banner document="[[document]]"></piir-sdp-banner>
+      </template>
+    </nuxeo-filter>
+  </template>
+</nuxeo-slot-content>

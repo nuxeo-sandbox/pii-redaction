@@ -1,0 +1,69 @@
+<!--
+`piir-sdp-banner`
+@group Nuxeo UI
+@element piir-sdp-banner
+
+This is based on nuxeo-document-info-bar.
+-->
+<dom-module id="piir-sdp-banner">
+  <template>
+    <style include="nuxeo-styles iron-flex">
+      .bar {
+        @apply --layout-horizontal;
+        @apply --layout-center;
+        @apply --layout-justified;
+        padding: 8px;
+        margin-bottom: 16px;
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.04);
+        background-color: var(--nuxeo-box);
+      }
+
+      .bar.sdp {
+        background: #ffdddd;
+      }
+
+      iron-icon {
+        margin: 0 0.5em;
+        width: 1.5em;
+      }
+    </style>
+
+    <div id="piirSDPInfoBar"
+         class="bar sdp">
+      <div class="layout horizontal center flex">
+        <iron-icon icon="pii-redaction:securitySectionIcon"></iron-icon>
+        <span class="layout flex">[[i18n('Warning: This document contains sensitive data. Automatic redaction has been performed.')]]</span>
+        <paper-button id="piir-sdptab"
+                      class="primary"
+                      on-tap="_openTab"
+                      noink>[[i18n('View SDP Scan Results')]]</paper-button>
+        <paper-button id="arender"
+                      class="primary"
+                      on-tap="_openTab"
+                      noink>[[i18n('View Redactions')]]</paper-button>
+      </div>
+    </div>
+
+  </template>
+
+  <script>
+    Polymer({
+      is: 'piir-sdp-banner',
+      behaviors: [Nuxeo.LayoutBehavior],
+      properties: {
+        document: {
+          type: Object
+        }
+      },
+
+      // This is probably a dirty hack but I couldn't find an elegant way to do
+      // it :(
+      _openTab: function (e) {
+        var currentLocation = window.location.href;
+        var tabFragment = "?p=" + e.currentTarget.id;
+        var target = currentLocation + tabFragment;
+        window.location.href = target;
+      }
+    });
+  </script>
+</dom-module>
