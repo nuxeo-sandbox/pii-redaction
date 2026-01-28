@@ -25,6 +25,7 @@ function run(input, params) {
 
 }
 
+
 //==============================================================================
 // Prefix for log messages to make it easier to understand the context.
 var LOG_PREFIX = "piir_api_DLP_CleanupData: ";
