@@ -4,8 +4,8 @@
     <packages/>
   </targetPlatform>
   <dependencies class="linked-hash-set">
-    <string>nuxeo-web-ui:2025.11.0</string>
     <string>nuxeo-arender:2025.0.4</string>
-    <string>nuxeo-data-loss-prevention-scanner:2025.0.0</string>
+    <string>nuxeo-data-loss-prevention-scanner:2025.1.0</string>
+    <string>nuxeo-web-ui:2025.14.0</string>
   </dependencies>
 </application>
